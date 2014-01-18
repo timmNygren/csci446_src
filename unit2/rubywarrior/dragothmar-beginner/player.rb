@@ -2,51 +2,68 @@ class Player
 
   def play_turn(warrior)
     # add your code here
+    @health = warrior.health if @health == nil
 
-    # @state(warrior)
-    if warrior.health < 20 and @health <= warrior.health
-    	warrior.rest!
-  	elsif warrior.feel.enemy?
-  		warrior.attack!
-  	else
-  		warrior.walk!
-  	end
+  	puts @health
+  	puts warrior.health
+
+    @state ||= self.method(:move_forward)
+
+    update(warrior)
 
   	@health = warrior.health
   end
 
-  # def self.update(warrior)
-  # 	@state(warrior)
-  # end
+  def update(warrior)
+  	@state.call(warrior)
+  end
 
-  # def rest(warrior)
-  # 	if @health < 20
-  # 		warrior.rest!
-  # 	else
-  # 		@state = move_forward
-  # 		self.update(warrior)
-  # 	end
-  # end
+  def rest(warrior)
 
-  # def move_forward(warrior)
-  # 	if warrior.feel.enemy?
-  # 		@state = attack
-  # 		self.update(warrior)
-  # 	elsif @health - warrior.health == 0 and @health != 20
-  # 		@state = rest
-  # 		self.update(warrior)
-  # 	else
-  # 		warrior.walk!
-  # 	end
-  # end
+  	difference = @health - warrior.health
 
-  # def attack(warrior)
-  # 	if !warrior.feel.enemy?
-  # 		@state = move_forward
-  # 		self.update(warrior)
-  # 	else
-  # 		warrior.attack!
-  # 	end
-  # end
+  	if @health == 20 or difference > 0
+  		@state = self.method(:move_forward)
+  		update(warrior)
+  	else
+  		warrior.rest!
+  	end
+  end
+
+  def move_forward(warrior)
+
+  	difference = @health - warrior.health
+
+  	if warrior.feel.enemy?
+  		@state = self.method(:attack)
+  		update(warrior)
+  	elsif difference <= 0  and  @health != 20
+  		@state = self.method(:rest)
+  		update(warrior)
+  	elsif warrior.feel.captive?
+  		@state = self.method(:rescue)
+  		update(warrior)
+  	else
+  		warrior.walk!
+  	end
+  end
+
+  def rescue(warrior)
+  	if !warrior.feel.captive?
+  		@state = self.method(:move_forward)
+  		update(warrior)
+  	else
+  		warrior.rescue!
+  	end
+  end
+
+  def attack(warrior)
+  	if !warrior.feel.enemy?
+  		@state = self.method(:move_forward)
+  		update(warrior)
+  	else
+  		warrior.attack!
+  	end
+  end
 
 end
