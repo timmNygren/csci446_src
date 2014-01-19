@@ -13,7 +13,7 @@ class Player
     # Set the state, if this is the first time use move
     @state ||= self.method(:move)
     # Set the current direction of the warrior
-    @direction ||= 1
+    @direction ||= 0
 
     # Update the action
     update(warrior)
@@ -57,26 +57,27 @@ class Player
   	# Don't want to die, so run
   	if warrior.health < THRESHHOLD and difference > 0
   		@state = self.method(:run)
-  		update(warrior)
+  		warrior.pivot!
+  		# update(warrior)
   	# If the player hasn't taken damage and health is not full set 
   	# the state to rest and update
   	elsif difference <= 0  and  @health != MAX_HEALTH
   		@state = self.method(:rest)
   		update(warrior)
   	# If there is an enemy ahead, set the state to attack and update
-  	elsif warrior.feel(@@directions[@direction]).enemy?
+  	elsif warrior.feel.enemy?#(@@directions[@direction]).enemy?
   		@state = self.method(:attack)
   		update(warrior)
   	# If there is a captive ahead set the state to rescue and update
-  	elsif warrior.feel(@@directions[@direction]).captive?
+  	elsif warrior.feel.captive?#(@@directions[@direction]).captive?
   		@state = self.method(:rescue)
   		update(warrior)
-  	elsif warrior.feel(@@directions[@direction]).wall?
-  		@direction = 0
-  		update(warrior)
+  	elsif warrior.feel.wall?#(@@directions[@direction]).wall?
+  		warrior.pivot!
+  		# update(warrior)
   	else
   		# Otherwise walk
-  		warrior.walk!(@@directions[@direction])
+  		warrior.walk!#(@@directions[@direction])
   	end
   end
 
@@ -89,27 +90,31 @@ class Player
   		@state = self.method(:move)
   		update(warrior)
   	else
-  		warrior.walk!(@@directions[ ( @direction + 1 ) % NUM_DIRECTIONS])
+  		warrior.walk!#(@@directions[ ( @direction + 1 ) % NUM_DIRECTIONS])
   	end
   end
 
   # Rescue a captive that has been found. 
   def rescue(warrior)
-  	if !warrior.feel(@@directions[@direction]).captive?
+  	if !warrior.feel.captive?#(@@directions[@direction]).captive?
   		@state = self.method(:move)
   		update(warrior)
   	else
-  		warrior.rescue!(@@directions[@direction])
+  		warrior.rescue!#(@@directions[@direction])
   	end
   end
 
   # Attack the enemy in front
   def attack(warrior)
-  	if !warrior.feel(@@directions[@direction]).enemy?
+
+  	if warrior.health < THRESHHOLD
+  		@state = self.method(:run)
+  		warrior.pivot!
+  	elsif !warrior.feel.enemy?#(@@directions[@direction]).enemy?
   		@state = self.method(:move)
   		update(warrior)
   	else
-  		warrior.attack!(@@directions[@direction])
+  		warrior.attack!#(@@directions[@direction])
   	end
   end
 
