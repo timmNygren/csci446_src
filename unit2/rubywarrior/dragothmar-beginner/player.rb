@@ -1,10 +1,9 @@
 class Player
 
-	@@directions = [:forward, :backward]
-
+	# Threshhold for when to run
 	THRESHHOLD = 10
+	# Max health of the player
 	MAX_HEALTH = 20
-	NUM_DIRECTIONS = 2
 
   def play_turn(warrior)
     # add your code here
@@ -14,6 +13,23 @@ class Player
     @state ||= self.method(:move)
     # Set the current direction of the warrior
     @direction ||= 0
+
+    look_ahead = warrior.look
+
+    look_ahead.each do |creature|
+    	if creature.captive?
+    		# If the first thing encountered is a captive, move towards to rescue
+    		@state = self.method(:move)
+    		break
+    	elsif creature.enemy?
+    		# If the first thing encountered is an enemy, shoot it
+    		@state = self.method(:attack)
+    		break
+    	else
+    		# Nothing was seen from look so player should just move
+    		@state = self.method(:move)
+    	end
+    end
 
     # Update the action
     update(warrior)
@@ -34,11 +50,11 @@ class Player
   	# determine if damage was taken
   	difference = @health - warrior.health
 
-  	# If warrior health is full or has taken damage, move forward to
-  	# attack enemy
+  	# If warrior health is full continue moving
   	if @health == MAX_HEALTH
   		@state = self.method(:move)
   		update(warrior)
+  	# If warrior is taking damage during resting, run
   	elsif difference > 0
   		@state = self.method(:run)
   		update(warrior)
@@ -57,27 +73,26 @@ class Player
   	# Don't want to die, so run
   	if warrior.health < THRESHHOLD and difference > 0
   		@state = self.method(:run)
-  		warrior.pivot!
-  		# update(warrior)
+  		update(warrior)
   	# If the player hasn't taken damage and health is not full set 
   	# the state to rest and update
   	elsif difference <= 0  and  @health != MAX_HEALTH
   		@state = self.method(:rest)
   		update(warrior)
   	# If there is an enemy ahead, set the state to attack and update
-  	elsif warrior.feel.enemy?#(@@directions[@direction]).enemy?
+  	elsif warrior.feel.enemy?
   		@state = self.method(:attack)
   		update(warrior)
   	# If there is a captive ahead set the state to rescue and update
-  	elsif warrior.feel.captive?#(@@directions[@direction]).captive?
+  	elsif warrior.feel.captive?
   		@state = self.method(:rescue)
   		update(warrior)
-  	elsif warrior.feel.wall?#(@@directions[@direction]).wall?
+  	# If there is a wall, turn around
+  	elsif warrior.feel.wall?
   		warrior.pivot!
-  		# update(warrior)
   	else
   		# Otherwise walk
-  		warrior.walk!#(@@directions[@direction])
+  		warrior.walk!
   	end
   end
 
@@ -85,37 +100,44 @@ class Player
   def run(warrior)
 
   	difference = @health - warrior.health
-
+  	# Warrior isn't taking damage and can move
   	if difference <= 0
   		@state = self.method(:move)
   		update(warrior)
   	else
-  		warrior.walk!#(@@directions[ ( @direction + 1 ) % NUM_DIRECTIONS])
+  		warrior.walk!(:backward)
   	end
   end
 
   # Rescue a captive that has been found. 
   def rescue(warrior)
-  	if !warrior.feel.captive?#(@@directions[@direction]).captive?
+  	if !warrior.feel.captive?
   		@state = self.method(:move)
   		update(warrior)
   	else
-  		warrior.rescue!#(@@directions[@direction])
+  		warrior.rescue!
   	end
   end
 
   # Attack the enemy in front
   def attack(warrior)
 
+  	# If the warrior is lower than the threshhold, he should stop attacking and run
   	if warrior.health < THRESHHOLD
   		@state = self.method(:run)
-  		warrior.pivot!
-  	elsif !warrior.feel.enemy?#(@@directions[@direction]).enemy?
-  		@state = self.method(:move)
   		update(warrior)
-  	else
-  		warrior.attack!#(@@directions[@direction])
+  		return
   	end
+
+  	# Look ahead for more enemies
+  	look_ahead = warrior.look
+  	# Shoot any enemy encountered from looking
+  	look_ahead.each {|ahead_enemy| return warrior.shoot! if ahead_enemy.enemy? }
+
+  	# If no enemies are found, player moves forward
+  	@state = self.method(:move)
+  	update(warrior)
+
   end
 
 end
