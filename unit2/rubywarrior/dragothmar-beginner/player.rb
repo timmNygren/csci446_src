@@ -1,7 +1,7 @@
 class Player
 
 	# Threshhold for when to run
-	THRESHHOLD = 10
+	THRESHHOLD = 5
 	# Max health of the player
 	MAX_HEALTH = 20
 
@@ -122,6 +122,8 @@ class Player
   # Attack the enemy in front
   def attack(warrior)
 
+  	difference = @health - warrior.health
+
   	# If the warrior is lower than the threshhold, he should stop attacking and run
   	if warrior.health < THRESHHOLD
   		@state = self.method(:run)
@@ -131,8 +133,17 @@ class Player
 
   	# Look ahead for more enemies
   	look_ahead = warrior.look
-  	# Shoot any enemy encountered from looking
-  	look_ahead.each {|ahead_enemy| return warrior.shoot! if ahead_enemy.enemy? }
+
+  	if !look_ahead[0].enemy? and difference > 0
+  		warrior.walk!
+  		return
+  	elsif look_ahead[0].enemy?
+  		warrior.attack!
+  		return
+  	else
+	  	# Shoot any enemy encountered from looking
+	  	look_ahead.each {|ahead_enemy| return warrior.shoot! if ahead_enemy.enemy? }
+	  end
 
   	# If no enemies are found, player moves forward
   	@state = self.method(:move)
