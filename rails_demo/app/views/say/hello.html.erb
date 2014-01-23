@@ -1,0 +1,20 @@
+<h1>Hello from Rails!</h1>
+<p>
+	It is now <%= @time %>
+</p>
+<p>
+	Time to say
+	<%= link_to "Goodbye!", say_goodbye_path %>
+	<br>
+	<%= 1 + 2 %> 
+	<br>
+	<%= "cow" + "boy" %>
+	<br>
+	<%= 2.hour.from_now %>
+	<br>
+	<ul>
+	<% for file in @files %>
+		<li>file name is: <%= file %></li>
+	<% end %>
+	</ul>
+</p>
