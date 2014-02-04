@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  age: 1
-  breed: MyString
-  coloring: MyText
-  habits: MyText
-  image_url: MyString
-  gender: MyString
+jimmy:
+  name: Jimmy
+  age: 5
+  breed: Super mix
+  coloring: Black and brown
+  habits: Calm
+  image_url: jimmy.gif
+  gender: male
 
-two:
-  name: MyString
-  age: 1
-  breed: MyString
-  coloring: MyText
-  habits: MyText
-  image_url: MyString
-  gender: MyString
+cher:
+  name: Cher
+  age: 8
+  breed: Small mix
+  coloring: Black
+  habits: Energetic and likes to sing
+  image_url: cher.png
+  gender: female
