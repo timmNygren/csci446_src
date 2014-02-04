@@ -12,6 +12,7 @@
         <dl>
           <dt><%= pet.name %></dt><br />
           <dd>Age: <%= pet.age %><br />
+              Gender: <%= pet.gender %><br />
               Breed: <%= pet.breed %><br /><br />
               Coloring: <%= strip_tags(pet.coloring) %><br /><br />
               Habit: <%= strip_tags(pet.habits) %>
@@ -22,8 +23,9 @@
       <td class="list_actions">
         <%= link_to 'Show', pet %><br />
         <%= link_to 'Edit', edit_pet_path(pet) %><br />
-        <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 
-          'Are you sure?' } %>
+        <%= link_to 'Destroy', pet, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
       </td>
     </tr>
   <% end %>
