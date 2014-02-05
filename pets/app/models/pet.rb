@@ -1,5 +1,5 @@
 class Pet < ActiveRecord::Base
-	default_scope :order => 'name'
+	has_one :adopted_pets
 
 	validates :name, :breed, :image_url, :coloring, :habits, :gender, :presence => true
 	validates :age, :numericality => {:greater_than_or_equal_to => 1}

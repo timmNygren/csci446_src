@@ -3,17 +3,25 @@
 <% end %>
 
 <h1>Foster a pet</h1>
-
+<table>
+    <tr class="pretty">
+    	<th>Sort by:</th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "age" %></th>
+      <th><%= sortable "breed" %></th>
+    </tr>
+  </table>
 <% @pets.each do |pet| %>
 	<div class="entry">
 		<%= image_tag(pet.image_url) %>
 		<h3><%= pet.name %></h3>
 		Coloring: <%= strip_tags(pet.coloring) %><br />
 		Habits: <%= strip_tags(pet.habits) %>
-		<div class="price_line">
-			<span class="price">
+		<div class="age_line">
+			<span class="age">
 				<%= sprintf("Age: %d", pet.age) %><br />
 				<%= sprintf("Breed: %s", pet.breed) %>
+				<%= button_to 'Adopt!', adopted_pets_path(:pet_id => pet) %>
 			</span>
 		</div>
 	</div>

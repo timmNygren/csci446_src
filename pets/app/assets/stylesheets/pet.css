@@ -1,13 +1,50 @@
 /* Global styles */
 
+footer {
+  text-align: center;
+  background: #2a357d;
+  color: #99a5f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+footer a {
+  color: #99a5f2;
+}
+
+.pretty th .current {
+  padding-right: 18px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pretty th .asc {
+  background-image: url(../images/up_arrow.png);
+  background-size: 30%;
+}
+
+.pretty th .desc {
+  background-image: url(../images/down_arrow.png);
+  background-size: 30%;
+}
+
 #banner {
-  background: #9c9;
+  background: #6b79cf;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
+  color: #0915ba;
   text-align: center;
+}
+
+#logoPad {
+  padding-left: 5px;
 }
 
 #banner img {
@@ -15,14 +52,14 @@
 }
 
 #columns {
-  background: #141;
+  background: #2a357d;
 }
 
 #main {
   margin-left: 17em;
   padding-top: 4ex;
   padding-left: 2em;
-  background: white;
+  background: #e8cfac;
 }
 
 #side {
@@ -31,21 +68,21 @@
   padding-left: 1em;
   padding-bottom: 1em;
   width: 16em;
-  background: #141;
+  background: #2a357d;
 }
 
 #side a, #side p {
-  color: #bfb;
-  font-size: small;
+  color: #99a5f2;
+  font-size: medium;
 }
 
 #fosterhome #notice {
-  color: #000;
-  border: 2px solid red;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
+        color: #000;
+        border: 2px solid red;
+        padding: 1em;
+        margin-bottom: 2em;
+        background-color: #f0f0f0;
+        font: bold smaller sans-serif;
 }
 
 #fosterhome .entry form, #fosterhome .entry form div {
@@ -53,20 +90,20 @@
 }
 
 #fosterhome h1 {
-  font:  150% sans-serif;
-  color: #226;
-  border-bottom: 3px dotted #77d;
+        font:  150% sans-serif;
+        color: #226;
+        border-bottom: 3px dotted #77d;
 }
 
 /* Styles for products/index */
 
 #pet_list table {
-  border-collapse: collapse;
+        border-collapse: collapse;
 }
 
 #pet_list table tr td {
-  padding: 5px;
-  vertical-align: top;
+        padding: 5px;
+        vertical-align: top;
 }
 
 #pet_list .list_image {
@@ -79,7 +116,7 @@
 }
 
 #pet_list .list_description dl {
-  margin: 0;
+        margin: 0;
 }
 
 #pet_list .list_description dt {
@@ -89,7 +126,7 @@
 }
 
 #pet_list .list_description dd {
-  margin: 0;
+        margin: 0;
 }
 
 #pet_list .list_actions {
@@ -99,11 +136,11 @@
 }
 
 #pet_list .list_line_even {
-  background:   #e0f8f8;
+  background:   #bc8af2;
 }
 
 #pet_list .list_line_odd {
-  background:   #f8b0f8;
+  background:   #63e6f7;
 }
 
 /* An entry in the fosterhome catalog */

@@ -7,21 +7,24 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body id="store">
+<body id="fosterhome">
 	<div id="banner">
-		<%= image_tag("logo.png") %>
+		<div id="logoPad"><%= image_tag("logo.jpg") %></div>
 		<%= @page_title || "Foster a Pet" %>
 	</div>
 	<div id="columns">
 		<div id="side">
-			<a href="http://www...">Home</a><br />
-			<a href="http://www...">Questions</a><br />
-			<a href="http://www...">News</a><br />
-			<a href="http://www...">Contact</a><br />
+			<%= link_to 'Home', fosterhome_path %><br />
+			<%= link_to 'Add pet to list', pets_path %><br />
 		</div>
 		<div id="main">
 			<%= yield %>
 		</div>
 	</div>
+	<footer>
+		<p>&copy; Timm Nygren. No rights reserved. Credit to <a href="http://en.wikipedia.org/wiki/File:Bouvier_Bernois_BE.jpg">Ocmey</a>, 
+			<a href="http://en.wikipedia.org/wiki/File:Canadian_Golden_Retriever.jpeg">Siavash Ghazvinian</a>, 
+			and <a href="http://en.wikipedia.org/wiki/File:Thor_minpin.jpg">Ohsaywhat</a> for pictures.</p>
+	</footer>
 </body>
 </html>

@@ -1,5 +1,32 @@
-<p id="notice"><%= notice %></p>
+<% if notice == 'You are about to adopt a pet!' %>
+<div class="entry">
+  <p id="notice"><%= notice %></p>
 
+  <%= image_tag(@pet.image_url) %>
+  <h3>Name: <%= @pet.name %></h3><br /><br />
+   
+  <strong>Terms and Conditions for adopting this pet</strong>
+  <p>I agree that I will keep and care for this animal in a safe and humane manner, and
+  as a family pet and companion. The animal will have appropriate food, water, shelter
+  and medical care for the duration of its life.</p>
+  <p>I agree to abide by all state and local animal control and leash laws. I 
+  understand it is my responsibility to become familiar with these laws and to license 
+  the animal according to all regulations.</p>
+  <p>I understand that the former owner makes on guarantees or warranties regarding 
+    the health or temperament of this animal. I agree to be fully and solely responsible 
+    for this animal, and for any damages that may result from its actions. The former
+    owner, its heirs or representatives, shall not be held liable for the behavior of
+    this animal or any damages it may cause.</p>
+
+  <%= link_to 'Agree', fosterhome_path, data:  { confirm: 
+                        'I understand the Terms and Conditions'} %><br />
+  <%= link_to 'Back', fosterhome_path %>
+</div>
+
+<% else %>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
 <p>
   <strong>Name:</strong>
   <%= @pet.name %>
@@ -37,3 +64,4 @@
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
+<% end %>
