@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PetsControllerTest < ActionController::TestCase
   setup do
-    @pet = pets(:one)
+    @pet = pets(:jimmy)
     @update = {
       :name       => 'Doge',
       :habits     => 'Such doge, very foster, much sad',

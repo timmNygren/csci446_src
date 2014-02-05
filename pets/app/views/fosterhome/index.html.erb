@@ -8,10 +8,13 @@
 	<div class="entry">
 		<%= image_tag(pet.image_url) %>
 		<h3><%= pet.name %></h3>
-		<%= sanitize pet.coloring %>
-		<%= sanitize pet.habits %>
+		Coloring: <%= strip_tags(pet.coloring) %><br />
+		Habits: <%= strip_tags(pet.habits) %>
 		<div class="price_line">
-			<span class="price"><%= pet.age %></span>
+			<span class="price">
+				<%= sprintf("Age: %d", pet.age) %><br />
+				<%= sprintf("Breed: %s", pet.breed) %>
+			</span>
 		</div>
 	</div>
 <% end %>
