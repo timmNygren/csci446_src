@@ -13,10 +13,13 @@
 	</div>
 	<div id="columns">
 		<div id="side">
+			<p id="time">
+				<%= Time.now.asctime %>
+			</p>
 			<div id="cart">
 				<%= render @cart %>
 			</div>
-			
+
 			<ul>
 				<li><a href="http://www....">Home</a></li>
 				<li><a href="http://www..../faq">Questions</a></li>
