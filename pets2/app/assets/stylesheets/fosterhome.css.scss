@@ -11,6 +11,27 @@
 		border-bottom: 3px dotted #77d;
 	}
 
+	.pretty th {
+		padding-left: 10px;
+		padding-right: 10px;
+
+		.current {
+			padding-right: 18px;
+			background-repeat: no-repeat;
+			background-position: right center;
+		}
+
+		.asc {
+			background-image: url(up_arrow.png);
+			background-size: 30%;
+		}
+
+		.desc {
+			background-image: url(down_arrow.png);
+			background-size: 30%;
+		}
+	}
+
 	/* An entry in the fosterhome */
 	.entry {
 		overflow: auto;

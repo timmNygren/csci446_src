@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @adopt.pet %>
+</p>
+
+<%= link_to 'Edit', edit_adopt_path(@adopt) %> |
+<%= link_to 'Back', adopts_path %>

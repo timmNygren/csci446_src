@@ -4,6 +4,15 @@
 
 <h1>Foster a pet</h1>
 
+
+<table>
+  <tr class="pretty">
+  	<th>Sort by:</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "age" %></th>
+    <th><%= sortable "breed" %></th>
+  </tr>
+</table>
 <% @pets.each do |pet| %>
 	<div class="entry">
 		<%= image_tag(pet.image_url) %>
@@ -15,6 +24,7 @@
 				<%= sprintf("Age: %d", pet.age) %><br />
 				<%= sprintf("Breed: %s", pet.breed) %>
 			</span>
+			<%= button_to 'Adopt!', adopts_path(pet_id: pet) %>
 		</div>
 	</div>
 <% end %>
