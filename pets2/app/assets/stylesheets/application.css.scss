@@ -28,7 +28,7 @@
 #notice {
 	color: #000 !important;
 	border: 2px solid red;
-	padding 1em;
+	padding: 1em;
 	margin-bottom: 2em;
 	background-color: #f0f0f0;
 	font: bold smaller sans-serif;
@@ -49,15 +49,10 @@
 		width: 13em;
 		background: #141;
 
-		ul {
+		#link {
 			padding: 0;
-			li {
-				list-style: none;
-				a {
-					color: #bfb;
-					font-size: small;
-				}
-			}
+			color: #bfb;
+			font-size: smaller;
 		}
 	}
 }
