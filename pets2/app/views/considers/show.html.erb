@@ -1,0 +1,16 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<h2>Your thoughtful considerations</h2>
+<table>
+	<% @consider.consider_adopts.each do |consider_pet| %>
+	<tr>
+		<td><%= image_tag(consider_pet.pet.image_url, class: "consider_img") %></td>
+		<td><%= consider_pet.pet.name %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= button_to 'Remove Considerations', @consider, method: :delete, data: { confirm: 'Are you sure?' } %>

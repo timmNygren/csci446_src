@@ -1,0 +1,29 @@
+<h1>Listing consider_adopts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pet</th>
+      <th>Consider</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consider_adopts.each do |consider_adopt| %>
+      <tr>
+        <td><%= consider_adopt.pet %></td>
+        <td><%= consider_adopt.consider %></td>
+        <td><%= link_to 'Show', consider_adopt %></td>
+        <td><%= link_to 'Edit', edit_consider_adopt_path(consider_adopt) %></td>
+        <td><%= link_to 'Destroy', consider_adopt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consider adopt', new_consider_adopt_path %>

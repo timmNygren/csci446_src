@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class AdoptsControllerTest < ActionController::TestCase
-  fixtures :pets
-
   setup do
-    @adopt = pets(:jimmy)
+    @adopt = adopts(:one)
   end
 
   test "should get index" do

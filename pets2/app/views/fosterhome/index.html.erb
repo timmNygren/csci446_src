@@ -25,6 +25,7 @@
 				<%= sprintf("Breed: %s", pet.breed) %>
 			</span>
 			<%= button_to 'Adopt!', adopts_path(pet_id: pet) %>
+			<%= button_to 'Consider Adopting', consider_adopts_path(pet_id: pet) %>
 		</div>
 	</div>
 <% end %>

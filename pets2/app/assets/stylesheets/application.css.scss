@@ -14,11 +14,11 @@
 
 
 #banner {
-	background: #9c9;
+	background: #6b79cf;
 	padding: 10px;
 	border-bottom: 2px solid;
 	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
+	color: #0915ba;
 	text-align: center;
 
 	img {
@@ -36,24 +36,32 @@
 }
 
 #columns {
-	background: #141;
+	background: #2a357d;
 
 	#main {
 		margin-left: 17em;
 		padding: 1em;
-		background: white;
+		background: #e8cfac;
 	}
 
 	#side {
 		float: left;
 		padding: 1em 2em;
 		width: 13em;
-		background: #141;
+		background: #2a357d;
 
 		#link {
 			padding: 0;
-			color: #bfb;
+			color: #99a5f2;
 			font-size: smaller;
 		}
 	}
+}
+
+footer {
+  text-align: center;
+  background: #2a357d;
+  color: #99a5f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

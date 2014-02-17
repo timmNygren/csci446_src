@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @consider_adopt.pet %>
+</p>
+
+<p>
+  <strong>Consider:</strong>
+  <%= @consider_adopt.consider %>
+</p>
+
+<%= link_to 'Edit', edit_consider_adopt_path(@consider_adopt) %> |
+<%= link_to 'Back', consider_adopts_path %>

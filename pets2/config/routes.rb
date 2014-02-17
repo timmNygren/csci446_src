@@ -1,4 +1,8 @@
 Pets2::Application.routes.draw do
+  resources :consider_adopts
+
+  resources :considers
+
   resources :adopts
 
   get "fosterhome/index"

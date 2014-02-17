@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217191727) do
+ActiveRecord::Schema.define(version: 20140217211421) do
 
   create_table "adopts", force: true do |t|
     t.integer  "pet_id"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 20140217191727) do
   end
 
   add_index "adopts", ["pet_id"], name: "index_adopts_on_pet_id"
+
+  create_table "consider_adopts", force: true do |t|
+    t.integer  "pet_id"
+    t.integer  "consider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consider_adopts", ["consider_id"], name: "index_consider_adopts_on_consider_id"
+  add_index "consider_adopts", ["pet_id"], name: "index_consider_adopts_on_pet_id"
+
+  create_table "considers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pets", force: true do |t|
     t.string   "name"
