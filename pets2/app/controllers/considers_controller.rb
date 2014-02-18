@@ -58,7 +58,7 @@ class ConsidersController < ApplicationController
     @consider.destroy if @consider.id == session[:consider_id]
     session[:consider_id] = nil
     respond_to do |format|
-      format.html { redirect_to fosterhome_url, notice: 'You have removed your considerations.' }
+      format.html { redirect_to fosterhome_url }
       format.json { head :no_content }
     end
   end

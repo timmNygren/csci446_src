@@ -3,7 +3,7 @@ class Consider < ActiveRecord::Base
 
 	def add_pet(pet_id)
 		current_pet = consider_adopts.find_by(pet_id: pet_id)
-		if !current_pet
+		if current_pet == nil
 			current_pet = consider_adopts.build(pet_id: pet_id)
 		end
 		current_pet

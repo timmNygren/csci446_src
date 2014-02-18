@@ -1,0 +1,6 @@
+if ($('#consider tr').length == 0) { $('#consider').show('blind', 1000); }
+
+$('#consider').html("<%= escape_javascript render(@consider) %>");
+
+$('#current_pet').css({'background-color':'#bfe2f5'}).
+	animate({'background-color':'#2a357d'}, 1000);

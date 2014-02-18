@@ -31,7 +31,8 @@ class ConsiderAdoptsController < ApplicationController
 
     respond_to do |format|
       if @consider_adopt.save
-        format.html { redirect_to @consider_adopt.consider }
+        format.html { redirect_to fosterhome_url }
+        format.js   { @current_consider = @consider_adopt }
         format.json { render action: 'show', status: :created, location: @consider_adopt }
       else
         format.html { render action: 'new' }

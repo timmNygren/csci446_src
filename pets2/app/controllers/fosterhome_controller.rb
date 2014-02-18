@@ -1,5 +1,7 @@
 class FosterhomeController < ApplicationController
 	helper_method :sort_column, :sort_direction
+  include CurrentConsider
+  before_action :set_consider
 
   def index
   	@pets = Pet.order(sort_column + " " + sort_direction)

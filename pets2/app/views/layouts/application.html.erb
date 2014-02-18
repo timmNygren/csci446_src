@@ -13,6 +13,11 @@
 	</div>
 	<div id="columns">
 		<div id="side">
+			<% if @consider %>
+				<%= hidden_div_if(@consider.consider_adopts.empty?, id: 'consider') do %>
+					<%= render @consider %>
+				<% end %>
+			<% end %>
 			<%= link_to 'Home', fosterhome_path, id: "link" %><br />
 			<%= link_to 'Add pet to list', pets_path, id: "link" %><br />
 		</div>

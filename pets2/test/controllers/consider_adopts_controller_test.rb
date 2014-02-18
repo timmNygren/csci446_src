@@ -21,7 +21,18 @@ class ConsiderAdoptsControllerTest < ActionController::TestCase
       post :create, consider_adopt: pets(:jimmy).id
     end
 
-    assert_redirected_to consider_path(assigns(:consider_adopt).consider)
+    assert_redirected_to fosterhome_path
+  end
+
+  test "should create consider_adopt via ajax" do
+    assert_difference('ConsiderAdopt.count') do
+      xhr :post, :create, pet_id: pets(:jimmy).id
+    end
+
+    assert_response :success
+    assert_select_jquery :html, '#consider' do
+      assert_select 'tr#current_pet td', /Jimmy/
+    end
   end
 
   test "should show consider_adopt" do

@@ -1,0 +1,6 @@
+<h2>Your thoughtful Considerations</h2>
+<table>
+	<%= render(consider.consider_adopts) %>
+</table>
+
+<%= button_to 'Remove Considerations', consider, method: :delete, data: { confirm: 'Are you sure?' } %>

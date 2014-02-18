@@ -10,4 +10,10 @@ class FosterhomeControllerTest < ActionController::TestCase
     assert_select '.age', /[\d]+/
   end
 
+  test "markup needed for fosterhome.js.coffee is in place" do
+  	get :index
+  	assert_select '.fosterhome .entry > img', 3
+  	assert_select '.entry input[type=submit]', 3
+  end
+
 end

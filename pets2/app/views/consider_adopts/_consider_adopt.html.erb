@@ -1,0 +1,8 @@
+<% if consider_adopt == @current_consider %>
+<tr id="current_pet">
+<% else %>
+<tr>
+<% end %>
+	<td><%= image_tag(consider_adopt.pet.image_url, class: "consider_img") %></td>
+	<td><%= consider_adopt.pet.name %></td>
+</tr>
