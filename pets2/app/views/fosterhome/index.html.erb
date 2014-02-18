@@ -14,7 +14,7 @@
   </tr>
 </table>
 <% @pets.each do |pet| %>
-	<%= button_to 'Adopt!', adopts_path(pet_id: pet) %>
+	<% if pet.status == 'Available' %>
 	<div class="entry">
 		<%= image_tag(pet.image_url) %>
 		<h3><%= pet.name %></h3>
@@ -25,7 +25,9 @@
 				<%= sprintf("Age: %d", pet.age) %><br />
 				<%= sprintf("Breed: %s", pet.breed) %>
 			</span>
-			<%= button_to 'Consider Adopting', consider_adopts_path(pet_id: pet), remote: true %>
+			<%= button_to 'Consider Adopting', consider_adopts_path(pet_id: pet), id: "consider_button", remote: true %>
+			<%= button_to 'Adopt!', adopts_path(pet_id: pet) %>
 		</div>
 	</div>
+	<% end %>
 <% end %>

@@ -8,6 +8,7 @@ one:
   habits: MyText
   image_url: MyString.jpg
   gender: MyString
+  status: Available
 
 jimmy:
   name: Jimmy
@@ -17,6 +18,7 @@ jimmy:
   habits: Calm
   image_url: jimmy.gif
   gender: male
+  status: Available
 
 cher:
   name: Cher
@@ -26,3 +28,4 @@ cher:
   habits: Energetic and likes to sing
   image_url: cher.png
   gender: female
+  status: Available

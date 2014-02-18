@@ -4,4 +4,4 @@
 
 $(document).on "page:change", ->
 	$('.fosterhome .entry > img').click ->
-		$(this).parent().find(':submit').click()
+		$(this).parent().find('#consider_button').click()

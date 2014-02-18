@@ -19,7 +19,8 @@ Pet.create(:name => 'Buddy',
 			Playful and loving.
 		</p>},
 	:image_url => 'buddy.jpg',
-	:gender => 'male')
+	:gender => 'male',
+	:status => 'Available')
 
 Pet.create(:name => 'Tazz',
 	:age => 11,
@@ -33,7 +34,8 @@ Pet.create(:name => 'Tazz',
 			Playful and loud.
 			</p>},
 	:image_url => 'tazz.jpg',
-	:gender => 'male')
+	:gender => 'male',
+	:status => 'Available')
 
 Pet.create(:name => 'Zephyr',
 	:age => 5,
@@ -49,4 +51,14 @@ Pet.create(:name => 'Zephyr',
 			Very relaxed most times. Can get hyper.
 			</p>},
 	:image_url => 'zephyr.jpg',
-	:gender => 'female')
+	:gender => 'female',
+	:status => 'Available')
+
+Pet.create(:name => 'Doge',
+      :habits     => 'Such doge, very foster, much sad',
+      :age        => 6,
+      :image_url  => 'doge.jpg',
+      :breed      => 'Shiba Inu',
+      :coloring   => 'Red coat with white chest and throat',
+      :gender     => 'male',
+      :status => 'Fostered')
