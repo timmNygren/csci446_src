@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ConsiderAdoptsControllerTest < ActionController::TestCase
+  
   setup do
     @consider_adopt = consider_adopts(:one)
   end
@@ -18,7 +19,7 @@ class ConsiderAdoptsControllerTest < ActionController::TestCase
 
   test "should create consider_adopt" do
     assert_difference('ConsiderAdopt.count') do
-      post :create, consider_adopt: pets(:jimmy).id
+      post :create, consider_adopt: pets(:jimmy)
     end
 
     assert_redirected_to fosterhome_path
