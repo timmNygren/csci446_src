@@ -26,7 +26,7 @@
 				<%= sprintf("Breed: %s", pet.breed) %>
 			</span>
 			<%= button_to 'Consider Adopting', consider_adopts_path(pet_id: pet), id: "consider_button", remote: true %>
-			<%= button_to 'Adopt!', adopts_path(pet_id: pet) %>
+			<%= button_to 'Adopt!', adopt_path(pet: pet) %>
 		</div>
 	</div>
 	<% end %>

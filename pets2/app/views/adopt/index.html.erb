@@ -4,8 +4,8 @@
 <% end %>
 
 
-<%= image_tag(@adopts.image_url) %>
-<h3>Name: <%= @adopts.name %></h3><br /><br />
+<%= image_tag(@pet.image_url) %>
+<h3>Name: <%= @pet.name %></h3><br /><br />
  
 <strong>Terms and Conditions for adopting this pet</strong>
 <p>I agree that I will keep and care for this animal in a safe and humane manner, and
@@ -20,9 +20,10 @@ the animal according to all regulations.</p>
   owner, its heirs or representatives, shall not be held liable for the behavior of
   this animal or any damages it may cause.</p>
 
-<%= button_to 'Agree', adopts_path(pet_id: @adopts, adopted: true), data:  { confirm: 
+<%= link_to 'Agree', fosterhome_path, data:  { confirm: 
                       'I understand the Terms and Conditions'} %><br />
 <%= link_to 'Back', fosterhome_path %>
 
 <br>
+
 

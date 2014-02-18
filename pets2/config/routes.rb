@@ -1,9 +1,8 @@
 Pets2::Application.routes.draw do
+  post 'adopt/index', to: 'adopt#index', as: 'adopt'
   resources :consider_adopts
 
   resources :considers
-
-  resources :adopts
 
   get "fosterhome/index"
   resources :pets

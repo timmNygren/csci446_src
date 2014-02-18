@@ -1,5 +1,4 @@
 class Pet < ActiveRecord::Base
-	has_one :adopts
 	has_many :consider_adopts
 
 	before_destroy :ensure_not_referenced_by_any_consider_adopt
