@@ -19,7 +19,7 @@ class ConsiderAdoptsControllerTest < ActionController::TestCase
 
   test "should create consider_adopt" do
     assert_difference('ConsiderAdopt.count') do
-      post :create, consider_adopt: pets(:jimmy)
+      post :create, pet_id: pets(:jimmy).id
     end
 
     assert_redirected_to fosterhome_path
