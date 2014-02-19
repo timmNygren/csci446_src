@@ -20,8 +20,7 @@ the animal according to all regulations.</p>
   owner, its heirs or representatives, shall not be held liable for the behavior of
   this animal or any damages it may cause.</p>
 
-<%= link_to 'Agree', fosterhome_path, data:  { confirm: 
-                      'I understand the Terms and Conditions'} %><br />
+<%= link_to 'Agree', new_foster_parent_path(pet: @pet), data:  { confirm: 'I understand the Terms and Conditions'} %><br />
 <%= link_to 'Back', fosterhome_path %>
 
 <br>

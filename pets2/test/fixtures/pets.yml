@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyString
   age: 1
   breed: MyString
@@ -11,6 +12,7 @@ one:
   status: Available
 
 jimmy:
+  id: 2
   name: Jimmy
   age: 5
   breed: Super mix
@@ -21,6 +23,7 @@ jimmy:
   status: Available
 
 cher:
+  id: 3
   name: Cher
   age: 8
   breed: Small mix

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+foo:
+  name: Foo Bar
+  address: Foo Bar Lane
+  email: mrFooBar@foo.com
+  pet_id: 1
+
+one:
+  name: MyString
+  address: MyText
+  email: MyString@stuff.com
+  pet_id: 1

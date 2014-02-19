@@ -1,0 +1,39 @@
+// Place all the styles related to the FosterParents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.foster_parent_form {
+	fieldset {
+		background: #a2c0f2;
+
+		legend {
+			color: #99a5f2;
+			background: #2a357d;
+			font-family: sans-serif;
+			padding: 0.2em 1em;
+		}
+	}
+
+	form {
+		label {
+			width: 5em;
+			float: left;
+			text-align: right;
+			padding-top: 0.2em;
+			margin-right: 0.1em;
+			display: block;
+		}
+
+		select, textarea, input {
+			margin-left: 0.5em;
+		}
+
+		.submit {
+			margin-left: 4em;
+		}
+
+		br {
+			display: none;
+		}
+	}
+}

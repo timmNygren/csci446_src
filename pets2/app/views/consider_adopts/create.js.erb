@@ -1,3 +1,5 @@
+$('#notice').hide();
+
 if ($('#consider tr').length == 0) { $('#consider').show('blind', 1000); }
 
 $('#consider').html("<%= escape_javascript render(@consider) %>");

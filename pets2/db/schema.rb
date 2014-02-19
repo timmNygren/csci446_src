@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218202707) do
+ActiveRecord::Schema.define(version: 20140218234606) do
 
   create_table "consider_adopts", force: true do |t|
     t.integer  "pet_id"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20140218202707) do
   add_index "consider_adopts", ["pet_id"], name: "index_consider_adopts_on_pet_id"
 
   create_table "considers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foster_parents", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.integer  "pet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

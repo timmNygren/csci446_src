@@ -61,6 +61,16 @@ class PetsController < ApplicationController
     end
   end
 
+  def who_bought
+    @pet = Pet.find(params[:id])
+    @latest_foster = @pet.foster_parent(:updated_at)
+    if stale?(@latest_foster)
+      respond_to do |format|
+        format.atom
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
