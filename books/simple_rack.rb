@@ -67,15 +67,7 @@ class SimpleApp
   end
 
   def render_table(req, response, sort)
-    response.write("<table>")
-    response.write("<tr>")
-    response.write("<th>Rank</th>")
-    response.write("<th>Title</th>")
-    response.write("<th>Author</th>")
-    response.write("<th>Language</th>")
-    response.write("<th>Year</th>")
-    response.write("<th>Copies</th>")
-    response.write("</tr>")
+    File.open("_tableheader.html", "r") { |head| response.write(head.read)}
     @bookList.each do |book|
       response.write("<tr>")
       book.each do |attribute|
