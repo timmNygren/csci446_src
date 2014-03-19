@@ -1,0 +1,21 @@
+<p>Sorted by <%= @sortorder.capitalize %></p>
+<table>
+	<tr>
+		<th>Rank</th>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Language</th>
+		<th>Published</th>
+		<th>Copies</th>
+	</tr>
+	<% for @book in @bookList %>
+	<tr>
+		<td><%= @book.id %></td>
+		<td><%= @book.title %></td>
+		<td><%= @book.author %></td>
+		<td><%= @book.language %></td>
+		<td><%= @book.published %></td>
+		<td><%= @book.sold %></td>
+	</tr>
+	<% end %>
+</table>
