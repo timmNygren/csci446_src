@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Rack</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="list.css" >
+	</head>
+	<body>
+		<header>
+			<h1>Top 50 Best-Selling Books of All Time</h1>
+		</header>
+		<p>Sorted by <%= @sortorder.capitalize %></p>
+		<table>
+			<tr>
+				<th>Rank</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Language</th>
+				<th>Published</th>
+				<th>Copies</th>
+			</tr>
+			<% for @book in @bookList %>
+			<tr>
+				<% for @attribute in @book %>
+			 		<td><%= @attribute %></td>
+		 		<% end %>
+			</tr>
+			<% end %>
+		</table>
+		<footer><br /><small>Brought to you by: We Grok Books</small></footer>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Rack</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="list.css" >
+	</head>
+	<body>
+		<header>
+			<h1>Top 50 Best-Selling Books of All Time</h1>
+		</header>
+		<form action="/list" method="get">
+			<select name="sortorder">
+				<option value="id">Rank</option>
+				<option value="title">Title</option>
+				<option value="author">Author</option>
+				<option value="language">Language</option>
+				<option value="published">Published date</option>
+			</select>
+			<input type="submit" value="Display List"> 
+		</form>
+		<footer><br /><small>Brought to you by: We Grok Books</small></footer>
+	</body>
+</html>
