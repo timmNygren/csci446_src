@@ -35,4 +35,3 @@ Product.create!(:title => 'Rails Test Prescriptions',
 	:image_url => 'rtp.jpg',
 	:price => 43.85)
 # . . .
-

@@ -6,6 +6,9 @@ Depot::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  get "sessions/create"
+  get "sessions/destroy"
+
   resources :users
 
   resources :orders
